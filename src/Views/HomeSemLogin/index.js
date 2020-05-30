@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Grid, Button, Typography } from "@material-ui/core";
 import ImagemHome from "../../Images/imagem_home.png";
 import { useStyles } from "./styles";
