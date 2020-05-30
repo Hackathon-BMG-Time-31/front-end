@@ -7,7 +7,7 @@ export default function LayoutSemLogin(props) {
   const { children } = props;
 
   return (
-    <body style={{backgroundColor: "#FF8800"}}>
+    <body style={{backgroundImage: "linear-gradient(#e08a01, #f4bd7f)"}}>
         <MuiThemeProvider theme={Theme}>
       <Header />
 

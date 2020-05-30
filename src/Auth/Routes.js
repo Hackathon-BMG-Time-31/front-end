@@ -9,6 +9,7 @@ import { isAuthenticated } from "../Auth/Auth";
 import Login from "../Views/Login";
 import Cadastro from "../Views/Cadastro";
 import LayoutSemLogin from "../LayoutSemLogin";
+import HomeSemLogin from "../Views/HomeSemLogin";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -29,6 +30,8 @@ const Routes = () => (
   <Router>
     <Switch>
       <LayoutSemLogin>
+        <Route exact path="/" component={HomeSemLogin} />
+        <Route exact path="/home" component={HomeSemLogin} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/cadastro" component={Cadastro} />
       </LayoutSemLogin>
