@@ -79,7 +79,7 @@ export default function Dashboard() {
       </DialogContent>
       <DialogActions>
       <Button
-          onClick={() => navigator.clipboard.writeText("Hey, crie uma conta no banco BMG :) http://localhost:3000/cadastro?ref="+(usuario && usuario.id))}
+          onClick={() => navigator.clipboard.writeText("Hey, crie uma conta no banco BMG :) http://localhost:3000/cadastro?refer="+(usuario && usuario.id))}
           color="primary"
           variant="contained"
         >

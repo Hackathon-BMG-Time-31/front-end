@@ -59,6 +59,10 @@ export default function Cadastro(props) {
         : "Ocorreu um erro ao cadatrar o usuário"
     );
     setOpen(true);
+
+    if (resultado) {
+      history.push("/login");
+    }
   }
 
   const handleCloseSnackBar = (event, reason) => {
