@@ -24,6 +24,19 @@ export async function loginApi(cpf, senha) {
     }
 }
 
+export async function cadastrarApi(form) {
+    try{
+        const url = "http://localhost:5000/users/cadastro";
+        const response = await axios.post(url, form);
+
+        return response.status === 200;
+    }
+    catch(err) {
+        console.log('err => ', err)
+        return false;
+    }
+}
+
 export async function getUserApi() {
     try{
         const url = "http://localhost:5000/users/get";

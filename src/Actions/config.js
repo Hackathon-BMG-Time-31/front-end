@@ -23,12 +23,14 @@ axios.interceptors.response.use(
     return config;
   },
   (error) => {
-    const { status } = error.response;
+    if (error.response) {
+      const { status } = error.response;
 
-    // if (status === 401) {
-    //   logout();
-    //   window.location = "/login";
-    // }
+      if (status === 401) {
+        logout();
+        window.location = "/login";
+      }
+    }
 
     return Promise.reject(error);
   }
