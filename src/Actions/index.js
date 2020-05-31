@@ -23,3 +23,22 @@ export async function loginApi(cpf, senha) {
         return false;
     }
 }
+
+export async function getUserApi() {
+    try{
+        const url = "http://localhost:5000/users/get";
+        const response = await axios.get(url);
+
+        const result = response.data;
+
+        if(result.user) {
+            return result.user;
+        }
+
+        return null;
+    }
+    catch(err) {
+        console.log('err => ', err)
+        return null;
+    }
+}

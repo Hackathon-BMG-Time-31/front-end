@@ -12,7 +12,8 @@ export const axios = Axios.create({
 
 axios.interceptors.request.use(async (config) => {
   const token = getToken();
-  if (token) config.headers.Authorization = `Bearer ${token}`;
+
+  if (token) config.headers["x-access-token"] = `${token}`;
 
   return config;
 });
@@ -24,10 +25,10 @@ axios.interceptors.response.use(
   (error) => {
     const { status } = error.response;
 
-    if (status === 401) {
-      logout();
-      window.location = "/login";
-    }
+    // if (status === 401) {
+    //   logout();
+    //   window.location = "/login";
+    // }
 
     return Promise.reject(error);
   }
