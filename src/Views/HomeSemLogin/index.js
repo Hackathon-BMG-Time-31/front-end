@@ -22,10 +22,11 @@ export default function HomeSemLogin() {
           <Typography variant="h2" style={{ color: "white" }}>
             Bem vindo ao BMG!
           </Typography>
-          <Typography variant="h3" style={{ color: "white" }}>
-            Vantagem exclusivas, premiações, cashback, divulgue um produto e
-            ganhe, faça aquisições de novos produtos e compartilhe com seus
-            amigos !
+          <Typography variant="h4" style={{ color: "white" }}>
+            Trilhar o seu caminho em busca do sucesso envolve uma série de ações
+            no "Jogo da Vida". Com o Be My Guest você convida pessoas ao mesmo
+            tempo que compartilha suas experiências em troca de recompensas por
+            ajudá-los a também organizar suas vidas financeiras.
           </Typography>
         </Grid>
         <Grid container item xs={4} style={{ minWidth: "400px" }}>
@@ -39,7 +40,7 @@ export default function HomeSemLogin() {
           color="primary"
           onClick={() => history.push("/login")}
         >
-          Acessar Meu BMG
+          Acessar BMG
         </Button>
       </Grid>
     </div>

@@ -10,6 +10,7 @@ import {
 import { useStyles } from "./styles";
 import { useHistory } from "react-router-dom";
 import { isAuthenticated, logout } from "../../Auth/Auth";
+import ImagemLogo from "../../Images/logo.png";
 
 export default function Header() {
   const classes = useStyles();
@@ -44,7 +45,7 @@ export default function Header() {
         <AppBar position="static">
           <Toolbar>
             <Typography variant="h6" className={classes.title}>
-              BMG Rewards
+              <img src={ImagemLogo} alt="logo" width="200px" />
             </Typography>
             {isAuthenticated() ? (
               <Button
@@ -70,7 +71,7 @@ export default function Header() {
                   color="secondary"
                   onClick={() => history.push("/login")}
                 >
-                  Acessar Meu BMG
+                  Acessar BMG
                 </Button>
               </Fragment>
             )}
