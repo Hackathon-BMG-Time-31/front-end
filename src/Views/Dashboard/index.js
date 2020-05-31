@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useStyles } from "./styles";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import { CardContent, Card, Grid } from "@material-ui/core";
+import { isAuthenticated } from "../../Auth/Auth";
+import { useHistory } from "react-router-dom";
 
-export default function Home() {
+export default function Dashboard() {
   const classes = useStyles();
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!isAuthenticated()) {
+      history.push("/home");
+    }
+  });
+
   return (
     <div className={classes.root}>
       <Grid container spacing={3} justify="center">
@@ -61,7 +71,6 @@ export default function Home() {
           </Card>
         </Grid>
       </Grid>
-
     </div>
   );
 }

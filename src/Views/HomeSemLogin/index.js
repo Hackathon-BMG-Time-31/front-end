@@ -3,10 +3,17 @@ import { Grid, Button, Typography } from "@material-ui/core";
 import ImagemHome from "../../Images/imagem_home.png";
 import { useStyles } from "./styles";
 import { useHistory } from "react-router-dom";
+import { isAuthenticated } from "../../Auth/Auth";
 
 export default function HomeSemLogin() {
   const classes = useStyles();
   const history = useHistory();
+
+  useEffect(() => {
+    if (isAuthenticated()) {
+      history.push("/dashboard");
+    }
+  });
 
   return (
     <div className={classes.root}>

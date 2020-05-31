@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import {
   AppBar,
   Toolbar,
@@ -9,6 +9,7 @@ import {
 } from "@material-ui/core";
 import { useStyles } from "./styles";
 import { useHistory } from "react-router-dom";
+import { isAuthenticated, logout } from "../../Auth/Auth";
 
 export default function Header() {
   const classes = useStyles();
@@ -32,6 +33,11 @@ export default function Header() {
     },
   });
 
+  function logoutHeader() {
+    logout();
+    history.push("/home");
+  }
+
   return (
     <MuiThemeProvider theme={Theme}>
       <div className={classes.root}>
@@ -40,14 +46,34 @@ export default function Header() {
             <Typography variant="h6" className={classes.title}>
               BMG Rewards
             </Typography>
-            <Button
-              style={{ marginLeft: "10px" }}
-              variant="contained"
-              color="secondary"
-              onClick={() => history.push("/login")}
-            >
-              Sair
-            </Button>
+            {isAuthenticated() ? (
+              <Button
+                style={{ marginLeft: "10px" }}
+                variant="contained"
+                color="secondary"
+                onClick={() => logoutHeader()}
+              >
+                Sair
+              </Button>
+            ) : (
+              <Fragment>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={() => history.push("/cadastro")}
+                >
+                  Abra sua conta
+                </Button>
+                <Button
+                  style={{ marginLeft: "10px" }}
+                  variant="contained"
+                  color="secondary"
+                  onClick={() => history.push("/login")}
+                >
+                  Acessar Meu BMG
+                </Button>
+              </Fragment>
+            )}
           </Toolbar>
         </AppBar>
       </div>

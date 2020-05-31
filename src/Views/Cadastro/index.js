@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   TextField,
   Grid,
@@ -10,10 +10,17 @@ import {
 import ImagemCadastro from "../../Images/imagem_cadastro.png";
 import { useStyles } from "./styles";
 import { useHistory } from "react-router-dom";
+import { isAuthenticated } from "../../Auth/Auth";
 
 export default function Cadastro() {
   const classes = useStyles();
   const history = useHistory();
+
+  useEffect(() => {
+    if (isAuthenticated()) {
+      history.push("/dashboard");
+    }
+  });
 
   return (
     <div className={classes.root}>
