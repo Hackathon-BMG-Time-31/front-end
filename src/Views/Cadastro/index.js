@@ -11,10 +11,16 @@ import ImagemCadastro from "../../Images/imagem_cadastro.png";
 import { useStyles } from "./styles";
 import { useHistory } from "react-router-dom";
 import { isAuthenticated } from "../../Auth/Auth";
+import queryString from 'query-string'
 
-export default function Cadastro() {
+
+export default function Cadastro(props) {
   const classes = useStyles();
   const history = useHistory();
+
+  const params = queryString.parse(props.location.search)
+
+  const { refer } = params;
 
   useEffect(() => {
     if (isAuthenticated()) {
